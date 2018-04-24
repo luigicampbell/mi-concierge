@@ -1,39 +1,60 @@
-var User = require("../models/User");
+var User = require("../models/user");
 
 module.exports = {
   // Create User
-  create: function(req, res) {
+  createUser: function(req, res) {
    User.create(req.body).then(function(data) {
      res.json(data);
    }).catch(function(err) {
      res.json(err);
    });
    },
-   // Find User
-  find: function(req, res) {
-    User.find( {email: req.body.email_primary} ).then(function(data) {
+
+  // Find user by user_id
+  findUserById: function(req, res) {
+    console.log(req.params);
+    User.find( {user_id: req.params.user_id} ).then(function(data) {
       res.json(data);
     }).catch(function(err) {
       res.json(err);
     });
   },
-  // Delete User
-  delete: function(req, res) {
-    User.remove({
-      _id: req.params.id
+
+  // Find user by email_primary
+  findUserByEmail: function(req, res) {
+    console.log(req.params);
+    User.find( {email_primary: req.params.email_primary} ).then(function(data) {
+      res.json(data);
+    }).catch(function(err) {
+      res.json(err);
+    });
+  },
+
+  // Delete user by user_id
+  deleteUserById: function(req, res) {
+    User.findOneAndRemove({
+      user_id: req.params.user_id
     }).then(function(data) {
-      res.json(data);
+      const response = Object.assign({status : "Successfully removed user"},data._doc);
+      res.json(response);
     }).catch(function(err) {
       res.json(err);
     });
   },
-   // Update User
-   update: function(req, res) {
-      User.findById(id, function(err, user) {
-         if (err) return (
-            res.json(err)
-         )
-         user.set(req.body)
-      });
-   }
+
+  // Update user by user_id
+  updateUserById: function(req, res) {
+    User.findOneAndUpdate( {user_id: req.params.user_id},
+    {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      phone_mobile: req.body.phone_mobile
+    }).then(function(data) {
+      console.log(data)
+      const response = Object.assign({status : "Successfully updated"},data._doc);
+      res.json(response);
+    }).catch(function(err) {
+      res.json(err);
+    });
+  }
 }
