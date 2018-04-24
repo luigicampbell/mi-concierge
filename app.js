@@ -8,19 +8,10 @@ var mongoose = require('mongoose');
 var index = require('./routes/index');
 var users = require('./routes/api/users');
 
+const PORT = process.env.PORT || 3000;
 var app = express();
 
 mongoose.Promise = global.Promise;
-
-const db = process.env.MONGODB_URI || "mongodb://localhost/mi-concierge";
-mongoose.connect(db, function(error) {
-  if (error) {
-    console.error(`Error Connecting to MongoDB: ${error}`);
-  }
-  else {
-    console.log("Successfull connection to MongoDB");
-  }
-});
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -55,4 +46,18 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+const db = process.env.MONGODB_URI || "mongodb://localhost/mi-concierge";
+mongoose.connect(db, function(error) {
+  if (error) {
+    console.error(`Error Connecting to MongoDB: ${error}`);
+  }
+  else {
+    console.log("Successfull connection to MongoDB");
+  }
+});
+
+app.listen(PORT, function() {
+  console.log(`Express Server Listening on PORT: ${PORT}!`);
+});
+
+// module.exports = app;
