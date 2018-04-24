@@ -4,15 +4,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var mongoose = require('mongoose');
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/api/users');
 
 var app = express();
 
+mongoose.Promise = global.Promise;
+
+const db = process.env.MONGODB_URI || "mongodb://localhost/mi-concierge";
+mongoose.connect(db, function(error) {
+  if (error) {
+    console.error(`Error Connecting to MongoDB: ${error}`);
+  }
+  else {
+    console.log("Successfull connection to MongoDB");
+  }
+});
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
