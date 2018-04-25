@@ -5,7 +5,7 @@
   "scripts": {
     "server": "node app.js",
     "client": "node scripts/start-client.js",
-    // "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "start": "concurrently \"nodemon app.js\" \"npm run client\"",
     "build": "node scripts/build.js",
     "seed": "node scripts/seedDB.js",
     "test": "echo \"Error: no test specified\" && exit 1",
