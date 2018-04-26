@@ -1,3 +1,5 @@
+require('dotenv').config();
+var keys = require('./keys.js');
 var express = require('express');
 var path = require('path');
 // var favicon = require('serve-favicon');
@@ -41,7 +43,7 @@ app.use(function(err, req, res, next) {
 });
 
 mongoose.Promise = global.Promise;
-const db = process.env.MONGODB_URI || "mongodb://localhost/mi-concierge";
+const db = process.env.MONGODB_URI;
 mongoose.connect(db, function(error) {
   if (error) {
     console.error(`Error Connecting to MongoDB: ${error}`);
