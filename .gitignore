@@ -1,7 +1,7 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules/
 
 # testing
 /coverage
@@ -10,7 +10,12 @@
 /build
 
 # misc
+.env
 .DS_Store
+.DS_Store?
+.Spotlight-V100
+Thumbs.db
+.Trashes
 .env.local
 .env.development.local
 .env.test.local
