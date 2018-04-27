@@ -1,15 +1,9 @@
 const router = require('express').Router();
-// const preferenceController = require('../../server/controllers/product-controller');
+const preferenceController = require('../../server/controllers/preference-controller');
 
-// // Matches with "/api/users/"
-// router.route("/")
-//   .post(preferenceController.create);
-
-// // Matches with "/api/users/:id"
-// router
-//   .route("/:id")
-//   .get(preferenceController.find)
-//   .put(preferenceController.update)
-//   .delete(preferenceController.delete);
+// Matches with "/api/preference/:user_id/:category"
+router
+  .route("/:user_id/:category")
+  .get(preferenceController.findPrefByUserIdCategory)
 
 module.exports = router;

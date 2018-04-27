@@ -1,9 +1,11 @@
 var mongoose = require("mongoose");
+const uuidv1 = require("uuid/v1");
 var Schema = mongoose.Schema;
 
 var preferenceSchema = new Schema ({
-	user_id: String,
-   product_id: String,
+   preference_id: { type: String, default: uuidv1() },
+   user_id: { type: String, index: true },
+   product_id: { type: String, index: true },
    value: Boolean,
    note: String,
    date_created: Date,

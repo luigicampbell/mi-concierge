@@ -1,4 +1,4 @@
-var User = require("../models/product");
+const Product = require("../models/product");
 
 module.exports = {
 
@@ -11,12 +11,12 @@ module.exports = {
    Car:Carrier, Class, Environment
 
    */
-  findProductByCategory: function(req, res) {
+  findProductsByCategory: function(req, res) {
    console.log(req.params);
-   User.find( {user_id: req.params.user_id} ).then(function(data) {
+   Product.find( {category: req.params.category} ).then(function(data) {
      res.json(data);
    }).catch(function(err) {
      res.json(err);
    });
- },
+ }
 }
