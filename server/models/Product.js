@@ -1,8 +1,9 @@
 var mongoose = require("mongoose");
+const uuidv1 = require("uuid/v1");
 var Schema = mongoose.Schema;
 
 var productSchema = new Schema ({
-	product_id: { type: String, index: true, unique: true },
+	product_id: { type: String, index: true, unique: true, default: uuidv1() },
    category: String,
    sub_category: String,
    item_name: String,

@@ -1,5 +1,5 @@
 require('dotenv').config();
-var keys = require('./keys.js');
+// var keys = require('./keys.js');
 var express = require('express');
 var path = require('path');
 // var favicon = require('serve-favicon');
@@ -43,8 +43,8 @@ app.use(function(err, req, res, next) {
 });
 
 mongoose.Promise = global.Promise;
-const db = process.env.MONGODB_URI;
-mongoose.connect(db, function(error) {
+console.log(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, function(error) {
   if (error) {
     console.error(`Error Connecting to MongoDB: ${error}`);
   }
@@ -52,6 +52,14 @@ mongoose.connect(db, function(error) {
     console.log("Successfull connection to MongoDB");
   }
 });
+// mongoose.connect("mongodb://localhost/mi-concierge", function(error) {
+//   if (error) {
+//     console.error(`Error Connecting to MongoDB: ${error}`);
+//   }
+//   else {
+//     console.log("Successfull connection to MongoDB");
+//   }
+// });
 
 app.listen(PORT, function() {
   console.log(`Express Server Listening on PORT: ${PORT}!`);

@@ -19,7 +19,10 @@ export default {
   },
   // Update user by user_id
   updateUserById: function(req, user_id) {
-    return axios.update("/api/user/user_id" + user_id, req.body)
+    return axios.update("/api/user/user_id/" + user_id, req.body)
+  },
+  findPrefByUserIdCategory: function(user_id, category) {
+    return axios.get("/api/preference/" + user_id + "/" + category)
   }
 
 };

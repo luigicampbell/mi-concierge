@@ -1,16 +1,23 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
+const uuidv1 = require('uuid/v1');
 const db = require("../server/models");
-mongoose.Promise = global.Promise;
 
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/mi-concierge"
-);
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI, function(error) {
+  if (error) {
+    console.error(`Error Connecting to MongoDB: ${error}`);
+  }
+  else {
+    console.log("Successfull connection to MongoDB");
+  }
+});
 
 const userSeed = [
   {
-    user_id: "ABCDEF",
+    user_id: uuidv1(),
     first_name: "Scott",
     last_name: "Reynolds",
     phone_mobile: "323-633-6980",
@@ -20,7 +27,7 @@ const userSeed = [
     data_updated: ""
   },
   {
-    user_id: "GHIJK",
+    user_id:  uuidv1(),
     first_name: "David",
     last_name: "Jones",
     phone_mobile: "310-587-8967",
@@ -30,7 +37,7 @@ const userSeed = [
     data_updated: ""
   },
   {
-    user_id: "LMNOP",
+    user_id:  uuidv1(),
     first_name: "Roger",
     last_name: "Clarkson",
     phone_mobile: "714-269-9986",
@@ -45,7 +52,7 @@ db.User
   .remove({})
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
-    console.log(data.insertedIds.length + " records inserted!");
+    console.log(data.insertedIds + " records inserted!");
     process.exit(0);
   })
   .catch(err => {
