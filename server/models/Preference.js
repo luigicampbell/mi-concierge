@@ -6,7 +6,7 @@ var preferenceSchema = new Schema ({
    preference_id: { type: String, default: uuidv1() },
    user_id: { type: String, index: true },
    product_id: { type: String, index: true },
-   value: Boolean,
+   value: { type: Boolean, default: null },
    note: String,
    date_created: Date,
    date_updated: { type: Date, default: Date.now }

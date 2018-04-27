@@ -12,43 +12,103 @@ class App extends Component {
     email_primary: "",
     phone_mobile: "",
     user_id: "073af1f0-49b2-11e8-a2cb-936548b8bb4a",
-    product_pref: ""
+    product_pref: "",
+    value: ""
   }
 
-  componentWillMount() {
-    this.showUsers()
-    this.getUserPrefs("dining")
+  componentDidMount() {
+    this.showUsers("dining")
+    // this.getUserPrefs("dining")
+     // this.showUsers()
+    // this.getUserPrefs("dining")
   }
 
-  showUsers = () => {
+  showUsers = (category) => {
+    let value = "";
     API.findUserByEmail('scott@scottreynolds.net')
-    .then(res => {
-      const {first_name, last_name, email_primary, phone_mobile, user_id } = res.data[0];
-      this.setState({
-        first_name: first_name,
-        last_name: last_name,
-        email_primary: email_primary,
-        phone_mobile: phone_mobile,
-        user_id: user_id
-      })
-    }
-    )
-    .catch(err => console.log("findUserByEmail error ", err))
+      .then(res => {
+        const { first_name, last_name, email_primary, phone_mobile, user_id } = res.data[0];
+        console.log("A");
+        API.findPrefByUserIdCategory(this.state.user_id, category)
+          .then(res => {
+            console.log("B");
+            console.log(res.data);
+            if (res.data.value === true ) {
+              console.log("true")
+              value = "True"
+            } else if (res.data.value === false ) {
+              console.log("false")
+              value = "False"
+            } else {
+              value = "None";
+              console.log('C')
+            }
+            this.setState({
+              first_name: first_name,
+              last_name: last_name,
+              email_primary: email_primary,
+              phone_mobile: phone_mobile,
+              user_id: user_id,
+              product_pref: res.data,
+              value: value + ''
+            // })
+            // console.log("getUserPrefs output ", res)
+            // let value = res.data;
+            // console.log('value = ', res.data)
+            // this.setState({
+            //   product_pref: res.data
+            })
+          })
+
+        
+      }
+      )
+      .catch(err => console.log("findUserByEmail error ", err))
   }
 
   getUserPrefs = (category) => {
     API.findPrefByUserIdCategory(this.state.user_id, category)
-    .then(res => {
-      console.log("getUserPrefs output ", res)
-      let value = res.data;
-      console.log('value = ', res.data)
-      this.setState({
-        product_pref: res.data
-      })
-    }
-    )
-    .catch(err => console.log("getUserPrefs error ", err))
+      .then(res => {
+        console.log("getUserPrefs output ", res)
+        let value = res.data;
+        console.log('value = ', res.data)
+        this.setState({
+          product_pref: res.data
+        })
+      }
+      )
+      .catch(err => console.log("getUserPrefs error ", err))
   }
+
+  // showUsers = () => {
+  //   API.findUserByEmail('scott@scottreynolds.net')
+  //   .then(res => {
+  //     const {first_name, last_name, email_primary, phone_mobile, user_id } = res.data[0];
+  //     this.setState({
+  //       first_name: first_name,
+  //       last_name: last_name,
+  //       email_primary: email_primary,
+  //       phone_mobile: phone_mobile,
+  //       user_id: user_id
+  //     })
+  //   }
+  //   )
+  //   .catch(err => console.log("findUserByEmail error ", err))
+  // }
+
+  // getUserPrefs = (category) => {
+  //   API.findPrefByUserIdCategory(this.state.user_id, category)
+  //   .then(res => {
+  //     console.log("getUserPrefs output ", res)
+  //     let value = res.data;
+  //     console.log('value = ', res.data)
+  //     this.setState({
+  //       product_pref: res.data
+  //     })
+  //   }
+  //   )
+  //   .catch(err => console.log("getUserPrefs error ", err))
+  // }
 
 
 
@@ -68,7 +128,7 @@ class App extends Component {
           <li>Primary Email: {this.state.email_primary}</li>
           <li>Mobile Phone: {this.state.phone_mobile}</li>
           <li>UserID: {this.state.user_id}</li>
-          <li>Preference: {this.state.product_pref}</li>
+          <li>Preference: {this.state.value}</li>
         </ul>
       </div>
     );

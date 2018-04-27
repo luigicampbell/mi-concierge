@@ -82,19 +82,22 @@ module.exports = {
       console.log(user_id, category);
       let productArray = [];
       let prefsArray = [];
+      // Search the product table for the product_id's in the category
       Product.find( { category: category } )
-      .then(function (data) {
-         // console.log("Category Data",data)
-         const productPrefData = data.map(function(obj, idx) {
-            console.log(idx, obj)
+      .then(function (products) {
+            console.log("Returned Products", products)
+            // return the preferences if product_id's and user_id match
+            const productPrefData = products.map(function(obj) {
             Preference.findOne({
                user_id: user_id,
                product_id: obj.product_id
-            })            
+            })
+            // if user_id and product_id have a record return it: null, true, false            
             .then(function(data){
                if (data) {
-                  console.log("value is", data.value)
-                  res.json(data.value)
+                  
+                  console.log("preference.controller findPrefByUserIdCategory value :", data)
+                  res.json(data)
                }
             })
          })
