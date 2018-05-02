@@ -12,7 +12,7 @@ module.exports = {
 
    */
   findProductsByCategory: function(req, res) {
-   console.log(req.params);
+  //  console.log(req.params);
    Product.find( {category: req.params.category} ).then(function(data) {
      res.json(data);
    }).catch(function(err) {
