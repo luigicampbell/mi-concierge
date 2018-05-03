@@ -1,103 +1,128 @@
 const Preference = require("../models/preference");
 const Product = require("../models/product");
 const uuidv1 = require("uuid/v1");
+const testArray = [
+  {
+  product_id: 1,
+  item_name: "Jello",
+  value: false
+  },
+  {
+    product_id: 2,
+    item_name: "Peeps",
+    value: null
+  },
+  {
+    product_id: 3,
+    item_name: "Coolaid",
+    value: true
+  },
+]
 
 module.exports = {
-      // Create Preference
-      // UNTESTED
-      createPreference: function (req, res) {
-            // set a UUID to user_id
-            req.body.user_id = uuidv1();
-            // create user in database
-            Preference.create(req.body).then(function (data) {
-                  res.json(data);
-            }).catch(function (err) {
-                  res.json(err);
-            });
-      },
 
-      // Find preference by preference_id
-      // UNTESTED
-      findPrefByPrefId: function (req, res) {
-            console.log(req.params);
-            Preference.find({ preference_id: req.params.preference_id }).then(function (data) {
-                  res.json(data);
-            }).catch(function (err) {
-                  res.json(err);
-            });
-      },
+  
+  // Create Preference
+  // UNTESTED
+  createPreference: function (req, res) {
+    // set a UUID to user_id
+    req.body.user_id = uuidv1();
+    // create user in database
+    Preference.create(req.body).then(function (data) {
+      res.json(data);
+    }).catch(function (err) {
+      res.json(err);
+    });
+  },
 
-      // Find preferences by user_id
-      // UNTESTED
-      findPrefsByUserId: function (req, res) {
-            console.log(req.params);
-            Preference.find({ user_id: req.params.user_id }).then(function (data) {
-                  res.json(data);
-            }).catch(function (err) {
-                  res.json(err);
-            });
-      },
+  // Find preference by preference_id
+  // UNTESTED
+  findPrefByPrefId: function (req, res) {
+    console.log(req.params);
+    Preference.find({ preference_id: req.params.preference_id }).then(function (data) {
+      res.json(data);
+    }).catch(function (err) {
+      res.json(err);
+    });
+  },
 
-      // Find preferences by product_id
-      // UNTESTED
-      findPrefsByProductId: function (req, res) {
-            console.log(req.params);
-            Preference.find({ product_id: req.params.product_id }).then(function (data) {
-                  res.json(data);
-            }).catch(function (err) {
-                  res.json(err);
-            });
-      },
+  // Find preferences by user_id
+  // UNTESTED
+  findPrefsByUserId: function (req, res) {
+    console.log(req.params);
+    Preference.find({ user_id: req.params.user_id }).then(function (data) {
+      res.json(data);
+    }).catch(function (err) {
+      res.json(err);
+    });
+  },
 
-      // Update preference by preference_id
-      // UNTESTED
-      updatePrefByPrefId: function (req, res) {
-            User.findOneAndUpdate({ preference_id: req.params.preference_id },
-                  {
-                        value: req.body.value,
-                        note: req.body.note
-                  }).then(function (data) {
-                        console.log(data)
-                        const response = Object.assign({ status: "Successfully updated" }, data._doc);
-                        res.json(response);
-                  }).catch(function (err) {
-                        res.json(err);
-                  });
-      },
+  // Find preferences by product_id
+  // UNTESTED
+  findPrefsByProductId: function (req, res) {
+    console.log(req.params);
+    Preference.find({ product_id: req.params.product_id }).then(function (data) {
+      res.json(data);
+    }).catch(function (err) {
+      res.json(err);
+    });
+  },
 
-      // Find preferences by user_id and category
-      findPrefByUserIdCategory: function (req, res) {
-            let user_id = req.params.user_id;
-            let category = req.params.category;
-            console.log('findPrefByUserIdCategory for:',user_id, category);
-            let productArray = [];
-            let prefsArray = [];
-            // Search the product table for all product_id's in the category
-            Product.find({ category: category })
-            .then(function (products) {
-                  // console.log("Returned Products", products)
-                  // return the preferences if product_id's and user_id match
-                  const productPrefData = products.map(function (obj, idx) {
-                  Preference.findOne({
-                        user_id: user_id,
-                        product_id: obj.product_id
-                        })
-                        // if user_id and product_id have a record return it: null, true, false            
-                        .then(function (data) {
-                              console.log("data ", data)
-                              if (data) {
-                                    console.log("preference.controller findPrefByUserIdCategory value :", data)
-                                    var newobj = Object.assign({value:data.value}, obj)
-                                    return newobj;
-                              }
-                        })
-                  })
-            res.json(data)
+  // Update preference by preference_id
+  // UNTESTED
+  updatePrefByPrefId: function (req, res) {
+    User.findOneAndUpdate({ preference_id: req.params.preference_id },
+      {
+        value: req.body.value,
+        note: req.body.note
+      }).then(function (data) {
+        console.log(data)
+        const response = Object.assign({ status: "Successfully updated" }, data._doc);
+        res.json(response);
+      }).catch(function (err) {
+        res.json(err);
+      });
+  },
+
+  // Find preferences by user_id and category
+  // called from /api/preference/:user_id/:category
+
+  findPrefByUserIdCategory: function (req, res) {
+    let user_id = req.params.user_id;
+    let category = req.params.category;
+    console.log('findPrefByUserIdCategory for:', user_id, category);
+    let newProducts = [];
+    // Search the product table for all product_id's in the category
+    Product.find({ category: category })
+      .then( products => {
+        
+        // return the preferences if product_id's and user_id match
+        for (let i=0; i < products.length; i++ ) {
+          console.log("Matching product", products[i].item_name)
+          Preference.findOne(
+            {
+            user_id: user_id, // query for user_id
+            product_id: products[i].product_id // and product_ids
+            }
+            , 'value product_id' //return keys and values from database
+            , function (err, data) {
+              if (err) return err;
+              if (data) {
+                console.log("Found a match for item",i, data.product_id,data.value)
+                console.log("this is the product we want to add value too",products[i])
+                products[i].value = data.value;
+                console.log("updated products",products[i].value);
+                
+                // res.json(products)
+                res.json(testArray)
+              }
+          })
+          // .then(res.json(products))
+        }
       })
-
       .catch(function (err) {
-            console.log("findPrefByUserIdCategory Error", err)
+        console.log("findPrefByUserIdCategory Error", err)
       })
 
-      }
+  }
 }
