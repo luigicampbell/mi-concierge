@@ -23,14 +23,14 @@ class Preferences extends Component {
     console.log("12345", this.props.user_id)
     API.findPrefByUserIdCategory(this.props.user_id, category)
       .then(res => {
-        console.log("B");
-        console.log(res.data);
-        this.setState({ preferences: res.data })
         console.log("res.data",res.data)
+        this.setState({ preferences: res.data })
       })
       .catch(err => console.log(err));
     }
 
+  handleInputChange = () => {}
+  
   render() {
     return (
       <div className="container-fluid">
@@ -41,7 +41,12 @@ class Preferences extends Component {
                 {this.state.preferences.map(item => (
                   <ListItem key={item.product_id}>
                     <p>
-                      Item: {item.name} Pref:  {item.value}
+                      Item: {item.item_name} {'  '}
+                      <input
+                       name='value'
+                       type='checkbox'
+                       checked={item.value}
+                       onChange={this.handleInputChange} />
                     </p>
                   </ListItem>
                 ))}
