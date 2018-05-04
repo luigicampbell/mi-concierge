@@ -12,8 +12,8 @@ class App extends Component {
     first_name: "",
     last_name: "",
     email_primary: "",
-    phone_mobile: ""
-    // user_id: "073af1f0-49b2-11e8-a2cb-936548b8bb4a"
+    phone_mobile: "",
+    user_id: ""
   }
 
   componentDidMount() {
@@ -54,7 +54,7 @@ class App extends Component {
             <li>Mobile Phone: {this.state.phone_mobile}</li>
             <li>UserID: {this.state.user_id}</li>
           </ul>
-          <Preferences user_id="073af1f0-49b2-11e8-a2cb-936548b8bb4a"/>
+          <Preferences user_id={this.state.user_id}/>
         </div>
       </div>
     );

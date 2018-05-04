@@ -11,7 +11,7 @@ const routes = require('./routes')
 // var index = require('./routes/index');
 // var users = require('./routes/api/user');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 var app = express();
 
 // app.use(logger('dev'));
@@ -44,7 +44,8 @@ app.use(function(err, req, res, next) {
 
 mongoose.Promise = global.Promise;
 console.log(process.env.MONGODB_URI);
-mongoose.connect(process.env.MONGODB_URI, function(error) {
+const db = process.env.MONGODB_URI || 'mongodb://localhost/mi-concierge'
+mongoose.connect(db, function(error) {
   if (error) {
     console.error(`Error Connecting to MongoDB: ${error}`);
   }
