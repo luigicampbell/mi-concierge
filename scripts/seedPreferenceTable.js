@@ -20,7 +20,25 @@ const preferenceSeed = [
     pref_id: uuidv1(),
     user_id: "073af1f0-49b2-11e8-a2cb-936548b8bb4a",
     product_id: "51221fb0-49b1-11e8-b30e-b94cdcb2b4b2",
-    value: null,
+    value: true,
+    note: "my preference",
+    date_created: Date.now,
+    data_updated: ""
+  },
+  {
+    pref_id: uuidv1(),
+    user_id: "073af1f0-49b2-11e8-a2cb-936548b8bb4a",
+    product_id: "51221fb2-49b1-11e8-b30e-b94cdcb2b4b2",
+    value: false,
+    note: "my preference",
+    date_created: Date.now,
+    data_updated: ""
+  },
+  {
+    pref_id: uuidv1(),
+    user_id: "073af1f0-49b2-11e8-a2cb-936548b8bb4a",
+    product_id: "51221fb5-49b1-11e8-b30e-b94cdcb2b4b2",
+    value: true,
     note: "my preference",
     date_created: Date.now,
     data_updated: ""

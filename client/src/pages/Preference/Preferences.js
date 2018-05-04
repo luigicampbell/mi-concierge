@@ -8,19 +8,11 @@ class Preferences extends Component {
     preferences: []
   };
 
-  componentDidMount() {
-    console.log("props", this.props)
-    this.showPreferences('dining');
+  componentDidUpdate(prevProps) {
+    if (prevProps.user_id !== this.props.user_id) this.showPreferences('dining');
   }
 
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res => this.setState({ books: res.data }))
-  //     .catch(err => console.log(err));
-  // };
-
   showPreferences = (category) => {
-    console.log("12345", this.props.user_id)
     API.findPrefByUserIdCategory(this.props.user_id, category)
       .then(res => {
         console.log("res.data",res.data)
@@ -41,11 +33,17 @@ class Preferences extends Component {
                 {this.state.preferences.map(item => (
                   <ListItem key={item.product_id}>
                     <p>
-                      Item: {item.item_name} {'  '}
+                      {item.item_name} {'  '}
                       <input
-                       name='value'
+                       name='checkedTrue'
                        type='checkbox'
-                       checked={item.value}
+                       checked={item.value===true}
+                       onChange={this.handleInputChange} />
+                       {'  '}
+                       <input
+                       name='checkedFalse'
+                       type='checkbox'
+                       checked={item.value===false}
                        onChange={this.handleInputChange} />
                     </p>
                   </ListItem>
