@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { List, ListItem } from "../../components/List";
+import "./Preferences.css";
 
 class Preferences extends Component {
-  
+
   state = {
     preferences: []
   };
@@ -21,8 +22,14 @@ class Preferences extends Component {
       .catch(err => console.log(err));
     }
 
-  handleInputChange = () => {}
-  
+    handleInputChange = event => {
+      const { name, value } = event.target;
+      this.setState({
+        [name]: value
+      });
+    };
+
+
   render() {
     return (
       <div className="container-fluid">
@@ -32,7 +39,7 @@ class Preferences extends Component {
               <List>
                 {this.state.preferences.map(item => (
                   <ListItem key={item.product_id}>
-                    <p>
+                    <p className="check-box">
                       {item.item_name} {'  '}
                       <input
                        name='checkedTrue'

@@ -1,0 +1,9 @@
+input[type=checkbox]{
+  float: right;
+}
+.item_name{
+float: left;
+}
+ul {
+  list-style-type: none;
+}
