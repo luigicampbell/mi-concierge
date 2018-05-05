@@ -45,9 +45,9 @@ class App extends Component {
             <h1 className="App-title">Welcome to Mi Concierge</h1>
           </header>
           <p className="App-intro">
-            Scott Test Page: Where all your dreams <code>ARE KNOWN</code>
+            Scott Test Page: Where all your dreams <strong>ARE KNOWN</strong>
           </p>
-          <ul>
+          <ul className="userData">
             <li>First Name : {this.state.first_name}</li>
             <li>Last Name: {this.state.last_name}</li>
             <li>Primary Email: {this.state.email_primary}</li>
@@ -62,7 +62,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-
