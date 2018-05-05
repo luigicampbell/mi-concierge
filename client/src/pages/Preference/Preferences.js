@@ -49,7 +49,7 @@ class Preferences extends Component {
               <List>
                 {this.state.preferences.map(item => (
                   <ListItem key={item.product_id}>
-                    <p className="check-box">
+                    <p>
                       {item.item_name} {'  '}
                       <input
                        name='checkedTrue'

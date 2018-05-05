@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .App-logo {
@@ -20,9 +22,13 @@
 
 .App-intro {
   font-size: large;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.userData{
+text-align: left;
 }
