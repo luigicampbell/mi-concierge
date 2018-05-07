@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  float: clear;
+}
+
+body {
+  background: url();
+}
+
+.panel {
+  align-items: center;
+  width: 100%;
+  height: 450px;
+  border: 2px solid black;
+  text-align: center;
+  background: transparent;
+}
+
+.submit {
+  margin-top: 14px;
+  padding: 10px;
+}

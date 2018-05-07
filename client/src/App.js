@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import API from "./utils/API";
 import logo from './logo.svg';
 import './App.css';
+import Preferences from "./pages/Preference";
 
 class App extends Component {
 
@@ -53,9 +54,10 @@ class App extends Component {
           <li>Mobile Phone: {this.state.phone_mobile}</li>
           <li>UserID: {this.state.user_id}</li>
         </ul>
+        <Preferences user_id={this.state.user_id}/>
       </div>
     );
   }
 }
 
-export default App;
+*/
