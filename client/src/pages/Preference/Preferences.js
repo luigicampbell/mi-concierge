@@ -11,11 +11,18 @@ class Preferences extends Component {
     category: ""
   };
 
+  componentDidMount() {
+    console.log('didMount', this.props.user_id);
+    this.showPreferences('dining')
+  }
+
   componentDidUpdate(prevProps) {
+    console.log("preference page",this.props)
     if (prevProps.user_id !== this.props.user_id) this.showPreferences('dining');
   }
 
   showPreferences = (category) => {
+    console.log("showPreferences",this.props.user_id);
     API.findPrefByUserIdCategory(this.props.user_id, category)
       .then(res => {
         console.log("res.data",res.data)
@@ -36,26 +43,30 @@ class Preferences extends Component {
     let target = event.target;
     // let value = target.type === 'checkbox' ? target.checked : target.value;
     let value = target.value;
-    let product_id = target.getAttribute('product_id');
+    let name = target.name;
     let preferences = this.state.preferences.slice();
-    console.log('preferences',preferences,product_id)
 
     for(let i = 0; i < preferences.length; i++){
       let item = preferences[i];
-      if (item.product_id == product_id){
+      if (item.product_id == name){
         item.value = value == 'true';
         console.log(item);
         break;
       }
     }
     this.setState({preferences: preferences});
-
-    API.updatePrefByUserIdProdId(
-      '073af1f0-49b2-11e8-a2cb-936548b8bb4a',
-      product_id,
-      value
-    )
     console.log(this.state);
+
+
+    // function isProduct(item){
+    //   return item.product_id == name;
+    // }
+
+    // console.log(this.state.preferences.find(isProduct));
+    // this.setState({
+    //   [name]: value
+    // });
+    // this.handleInputChange = this.handleInputChange.bind(this);
   }
 
 
@@ -72,18 +83,16 @@ class Preferences extends Component {
                     <p>
                       {item.item_name} {'  '}
                       <input
-                      //  name={item.product_id}
+                       name={item.product_id}
                        type='checkbox'
                        value='false'
-                       product_id={item.product_id}
                        checked={item.value===false}
                        onChange={this.handleInputChange} />
                        {'  '}
                        <input
-                      //  name={item.product_id}
+                       name={item.product_id}
                        type='checkbox'
                        value='true'
-                       product_id={item.product_id}
                        checked={item.value===true}
                        onChange={this.handleInputChange} />
                     </p>
