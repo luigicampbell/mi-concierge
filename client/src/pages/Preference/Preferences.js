@@ -52,13 +52,13 @@ class Preferences extends Component {
                     <p>
                       {item.item_name} {'  '}
                       <input
-                       name='checkedTrue'
+                       name='True'
                        type='checkbox'
                        checked={item.value===true}
                        onChange={this.handleInputChange} />
                        {'  '}
                        <input
-                       name='checkedFalse'
+                       name='False'
                        type='checkbox'
                        checked={item.value===false}
                        onChange={this.handleInputChange} />
