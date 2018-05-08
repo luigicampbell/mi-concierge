@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { List, ListItem } from "../../components/List";
+import { Navbar, List, ListItem } from "../../components/List";
 import "./Preferences.css";
+
 
 class Preferences extends Component {
 
@@ -75,6 +76,7 @@ class Preferences extends Component {
 
   render() {
     return (
+      // <Navbar />
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12">

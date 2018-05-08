@@ -60,60 +60,24 @@ class Login extends Component {
   render() {
   return (
     <div className="container-fluid">
-    <div className="row">
-      <div className="col-md-0 col-lg-3">
-        <div className="col-md-12 col-lg-6">
-          <div className="panel">
-      <h5>Login Page</h5>
-    <form>
-      <input
-        type="text"
-        name="email_primary"
-        value={this.state.email_primary}
-        placeholder="example@gmail.com"
-        onChange={this.handleInputChange} />
-      <h5>email:{this.state.email_primary}</h5>
-      <button onClick={this.verifyUser}>Login</button>
-    </form>
-    </div>
-    </div>
-    </div>
-    </div>
+      <div className="row">
+        <div className="col-sm-12 col-lg-6">
+        <h5>Please Login</h5>
+          <form>
+            <input
+              type="text"
+              name="email_primary"
+              value={this.state.email_primary}
+              placeholder="example@gmail.com"
+              onChange={this.handleInputChange} />
+            <h5>email:{this.state.email_primary}</h5>
+            <button onClick={this.verifyUser}>Login</button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }
 }
 export default Login;
-/*
-render() {
-  const {fields: {email_primary}, handleSubmit} = this.props;
-    return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <input type="text" placeholder="Email"
-            className={`form-control ${email_primary && email_primary.invalid ? 'has error' : ''}`}
-            {...email_primary}
-            />
-            <span className="text-help">
-              {email_primary ? email_primary.error : ''}
-            </span>
-            <input type="submit" />
-      </form>
-    );
-}
-}
 
-function validation(values){
-  const errors = {};
-  const emailPattern = /(.+)@(.+)(2,)\.(.+)(2,)/;
-  if (!emailPattern.test(values.email)) {
-    errors.email = 'Enter a valid email';
-  }
-  return errors;
-}
-
-Login = reduxForm({
-  form: 'Login',
-  fields: ['email_primary'],
-  validate: validation
-}, null, null)(Login);
-*/
