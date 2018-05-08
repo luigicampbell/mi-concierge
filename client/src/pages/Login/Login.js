@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "./Login.css";
 
 class Login extends Component {
 
@@ -41,18 +42,18 @@ class Login extends Component {
     <div className="row">
       <div className="col-md-0 col-lg-3">
         <div className="col-md-12 col-lg-6">
+          <div className="panel">
       <h5>Login Page</h5>
     <form>
       <input
         type="text"
         name="email_primary"
         placeholder="example@gmail.com"
-        required="required"
-        pattern="/^.+@{1}.+\.[a-zA-Z]{2,4}$/"
         onChange={this.handleInputChange} />
       <h5>email:{this.state.email_primary}</h5>
       <button onClick={this.verifyUser}>Login</button>
     </form>
+    </div>
     </div>
     </div>
     </div>
