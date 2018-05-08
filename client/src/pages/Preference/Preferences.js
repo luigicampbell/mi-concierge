@@ -29,14 +29,34 @@ class Preferences extends Component {
     //   });
     // };
 
-    handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+    handleInputChange = event => {
+    let target = event.target;
+    // let value = target.type === 'checkbox' ? target.checked : target.value;
+    let value = target.value;
+    let name = target.name;
+    let preferences = this.state.preferences.slice();
 
-    this.setState({
-      [name]: value
-    });
+    for(let i = 0; i < preferences.length; i++){
+      let item = preferences[i];
+      if (item.product_id == name){
+        item.value = value == 'true';
+        console.log(item);
+        break;
+      }
+    }
+    this.setState({preferences: preferences});
+    console.log(this.state);
+
+
+    // function isProduct(item){
+    //   return item.product_id == name;
+    // }
+
+    // console.log(this.state.preferences.find(isProduct));
+    // this.setState({
+    //   [name]: value
+    // });
+    // this.handleInputChange = this.handleInputChange.bind(this);
   }
 
 
@@ -52,15 +72,17 @@ class Preferences extends Component {
                     <p>
                       {item.item_name} {'  '}
                       <input
-                       name='True'
+                       name={item.product_id}
                        type='checkbox'
-                       checked={item.value===true}
+                       value='false'
+                       checked={item.value===false}
                        onChange={this.handleInputChange} />
                        {'  '}
                        <input
-                       name='False'
+                       name={item.product_id}
                        type='checkbox'
-                       checked={item.value===false}
+                       value='true'
+                       checked={item.value===true}
                        onChange={this.handleInputChange} />
                     </p>
                   </ListItem>
