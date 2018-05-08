@@ -18,6 +18,16 @@ mongoose.connect(process.env.MONGODB_URI, function(error) {
 const userSeed = [
   {
     user_id: uuidv1(),
+    first_name: "Yen",
+    last_name: "Chiu",
+    phone_mobile: "626-476-3665",
+    email_primary: "ychiu09@gmail.com",
+    password: "password",
+    date_created: Date.now,
+    data_updated: ""
+  },
+  {
+    user_id: uuidv1(),
     first_name: "Scott",
     last_name: "Reynolds",
     phone_mobile: "323-633-6980",
