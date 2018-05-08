@@ -5,6 +5,6 @@ import Root from './Root';
 import Scott from './AppScottTest'
 //import registerServiceWorker from './registerServiceWorker';
 
- ReactDOM.render(<Scott />, document.getElementById('root'));
+ ReactDOM.render(<Root />, document.getElementById('root'));
  //registerServiceWorker();
 

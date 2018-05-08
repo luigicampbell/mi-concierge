@@ -48,12 +48,14 @@ class Preferences extends Component {
 
     for(let i = 0; i < preferences.length; i++){
       let item = preferences[i];
-      if (item.product_id == name){
-        item.value = value == 'true';
-        console.log(item);
+      console.log("item",item);
+      if (item.product_id === name){
+        item.value = value === 'true';
         break;
       }
     }
+    console.log(this.props.user_id,name,value)
+    API.updatePrefByUserIdProdId(this.props.user_id, name, value)
     this.setState({preferences: preferences});
     console.log(this.state);
 
@@ -75,7 +77,7 @@ class Preferences extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-sm-12">
             {this.state.preferences.length ? (
               <List>
                 {this.state.preferences.map(item => (
@@ -103,7 +105,7 @@ class Preferences extends Component {
               <h3>No Preferences to Display</h3>
             )}
           </div>
-        <div className="col-md-0 col-lg-3"></div>
+        {/* <div className="col-md-0 col-lg-3"></div> */}
       </div>
     </div>
     );

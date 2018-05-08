@@ -169,23 +169,26 @@ module.exports = {
           preferences = prefResults.map(function(pref){
             return pref.toObject();
           })
-          console.log("preferences.length - preferences[0].product_id - value",preferences.length, preferences[0].product_id,preferences[0].value);
+          // console.log("preferences.length - preferences[0].product_id - value",preferences.length, preferences[0].product_id,preferences[0].value);
           // match and move productId[] and preferences[] to productsPrefs[] and return JSON
           for (let i=0; i < newProducts.length; i++) {
-            for (let j=0; j < preferences.length; j++) {
-              if (newProducts[i].product_id === preferences[j].product_id) {
-                newProducts[i].value = preferences[j].value;
-                break
-              } else {
-                newProducts[i].value = null;
+            if (preferences) {
+              for (let j=0; j < preferences.length; j++) {
+                if (newProducts[i].product_id === preferences[j].product_id) {
+                  newProducts[i].value = preferences[j].value;
+                  break
+                } else {
+                  newProducts[i].value = null;
+                }
               }
+            } else {
+              newProducts[i].value = null;
             }
           }
           console.log("newProducts", newProducts);
           res.json(newProducts)
           // res.json(testArray)
-        }
-      )
+        })
       })
       .catch(function (err) {
         console.log("findPrefByUserIdCategory Error", err)
