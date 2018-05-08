@@ -1,30 +1,40 @@
 * { 
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0;
 }
 
 body {
-  margin: 5% 25%;
-  text-align: center;
-  background: url(../../components/Img/city.png);
+  /* margin: 5% 25%; */
+  text-align: left;
+  /* background: url(../../components/Img/city.png); */
 }
 
 .panel {
   align-items: center;
-  width: 100%;
-  height: 450px;
-  border: 2px solid black;
+  /* width: 100%; */
+  /* height: 450px; */
+  /* border: 2px solid black; */
   text-align: center;
   background: transparent;
 }
 
+h6 {
+  margin: 25% 10% 25% 10%;
+  font-size: 2rem;
+}
+
 .btn-initial {
-  border-radius: 14px;
-  margin: 5%;
+  display: block;
+  align-items: center;
+  border-radius: 2px;
+  align-items: center;
+  margin: 10px auto;
+  width: 200px;
   padding: 10px;
-  border: 2px solid lightblue;
+  border: 2px solid black;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background: transparent;
+  background: white;
   color: black;
+  font-size: 2rem;
 }
 
