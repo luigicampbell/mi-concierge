@@ -9,6 +9,7 @@ const Homepage = () =>
            <div className="col-md-12 col-lg-6">
             <div className="panel">
              <h5>This is Homepage</h5>
+              {/* <p>{this.props.userId}</p> */}
               <div className="link-box">
                 <Link to="/sharesettings">Share Settings</Link>
                 <br/>

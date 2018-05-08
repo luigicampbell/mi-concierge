@@ -10,11 +10,18 @@ class Preferences extends Component {
     category: ""
   };
 
+  componentDidMount() {
+    console.log('didMount', this.props.user_id);
+    this.showPreferences('dining')
+  }
+
   componentDidUpdate(prevProps) {
+    console.log("preference page",this.props)
     if (prevProps.user_id !== this.props.user_id) this.showPreferences('dining');
   }
 
   showPreferences = (category) => {
+    console.log("showPreferences",this.props.user_id);
     API.findPrefByUserIdCategory(this.props.user_id, category)
       .then(res => {
         console.log("res.data",res.data)
