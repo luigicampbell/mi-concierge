@@ -7,11 +7,15 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.1.1",
     "bootstrap-node": "^1.0.0",
     "react": "^16.3.2",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "redux-form": "^7.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
