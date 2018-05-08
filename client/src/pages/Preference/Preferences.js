@@ -6,7 +6,9 @@ import "./Preferences.css";
 class Preferences extends Component {
 
   state = {
-    preferences: []
+    preferences: [],
+    email_primary: "",
+    category: ""
   };
 
   componentDidUpdate(prevProps) {
@@ -21,23 +23,6 @@ class Preferences extends Component {
       })
       .catch(err => console.log(err));
     }
-
-    // handleInputChange = event => {
-    //   const { name, value } = event.target;
-    //   this.setState({
-    //     [name]: value
-    //   });
-    // };
-
-    handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
 
 
   render() {
@@ -70,8 +55,9 @@ class Preferences extends Component {
               <h3>No Preferences to Display</h3>
             )}
           </div>
-        </div>
+        <div className="col-md-0 col-lg-3"></div>
       </div>
+    </div>
     );
   }
 }
