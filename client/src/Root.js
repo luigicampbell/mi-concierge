@@ -12,18 +12,21 @@ class Root extends Component {
 
   // this component was changed from stateless to stateful so that the user_id will be passed
     this.state = {
-      user_id: localStorage.getItem('user_id') || ""
+      user_id: localStorage.getItem('user_id') || "",
+      first_name: localStorage.getItem('first_name') || ""
     };
   }
 
 //this function passes the user_id once the login has been authenticated
-  afterLogin = (user_id) => {
+  afterLogin = (user_id, first_name) => {
     this.setState({
-      user_id: user_id
+      user_id: user_id,
+      first_name: first_name
     });
-    localStorage.setItem('user_id', user_id);
+    localStorage.setItem('user_id', user_id)
+    localStorage.setItem('first_name', first_name);
 
-    console.log("root user_id",this.state.user_id)
+    console.log("root user_id, first_name",this.state.user_id, this.state.first_name)
   }
 //router has been changed from a stateless function to render in this directory
   render() {
@@ -35,11 +38,11 @@ class Root extends Component {
           <Route exact path="/" component={Initial} />
 
           <Route exact path="/login" component={(props) => (<Login afterLogin={this.afterLogin} {...props} />) } />
-          <Route exact path="/preference" component={(props) => (<Preference user_id={this.state.user_id} {...props} />)} />
+          <Route exact path="/preference" component={(props) => (<Preference user_id={this.state.user_id} first_name={this.state.first_name} {...props} />)} />
           {/* <Route exact path="/preference" component={Preference} user_id={this.state.user_id} /> */}
 
-          <Route exact path="/profile" component={(props) => (<Profile user_id={this.state.user_id} {...props} />)} />
-          <Route exact path="/homepage" component={(props) => (<Homepage user_id={this.state.user_id} {...props} />)} />
+          <Route exact path="/profile" component={(props) => (<Profile user_id={this.state.user_id} first_name={this.state.first_name} {...props} />)} />
+          <Route exact path="/homepage" component={(props) => (<Homepage user_id={this.state.user_id} first_name={this.state.first_name} {...props} />)} />
         </Switch>
       </div>
     </Router>

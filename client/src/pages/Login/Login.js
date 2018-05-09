@@ -6,7 +6,8 @@ class Login extends Component {
 
   state = {
     email_primary: "",
-    user_id: ""
+    user_id: "",
+    first_name: ""
   }
 
   handleInputChange = (event) => {
@@ -29,20 +30,21 @@ class Login extends Component {
           // return;
         }
 
-        const {email_primary, user_id} = res.data[0];
+        const {email_primary, user_id, first_name} = res.data[0];
           this.setState({
             email_primary: email_primary,
-            user_id:  user_id
+            user_id: user_id,
+            first_name: first_name
           });
 
-          this.props.afterLogin(user_id);
+          this.props.afterLogin(user_id, first_name);
 
           if (this.state.email_primary === email_primary) {
             console.log(`it match....`);
             // window.location = "/preference";
             // console.log(this.props);
             // debugger;
-            this.props.history.push('/preference');
+            this.props.history.push('/homepage');
           } else {
             console.log(` it is invalid .....`);
           }
