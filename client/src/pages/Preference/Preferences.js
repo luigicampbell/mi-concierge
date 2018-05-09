@@ -15,11 +15,12 @@ class Preferences extends Component {
   componentDidMount() {
     console.log('didMount', this.props.user_id);
     this.showPreferences('dining')
+    // this.showPreferences(this.props.category)
   }
 
   componentDidUpdate(prevProps) {
     console.log("preference page",this.props)
-    if (prevProps.user_id !== this.props.user_id) this.showPreferences('dining');
+    if (prevProps.user_id !== this.props.user_id) this.showPreferences(this.props.category);
   }
 
   showPreferences = (category) => {
@@ -79,6 +80,7 @@ class Preferences extends Component {
       // <Navbar />
       <div className="container-fluid">
         <div className="row">
+        <p>Hello {this.props.first_name}</p>
           <div className="col-sm-12">
             {this.state.preferences.length ? (
               <List>

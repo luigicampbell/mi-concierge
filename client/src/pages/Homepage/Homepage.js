@@ -9,19 +9,21 @@ const Homepage = () =>
            <div className="col-md-12 col-lg-6">
             <div className="panel">
              <h5>This is Homepage</h5>
-              {/* <p>{this.props.userId}</p> */}
+              {/* <p>Hello {this.state.first_name}</p> */}
+              <p>Hello </p>
               <div className="link-box">
-                <Link to="/sharesettings">Share Settings</Link>
+                {/* <Link to="/sharesettings">Share Settings</Link> */}
+                {/* <Link >Share Settings</Link> */}
+                <br/><br/>
+                <p>Your Preferences</p>
                 <br/>
-                <Link to="/preference">Preferences</Link>
+                <Link to="/preference">Dinning</Link>
                 <br/>
-                <Link to="/dinning">Dinning</Link>
+                <Link to="/api/preference/{this.state.user_id}/hotel">Hotel</Link>
                 <br/>
-                <Link to="/hotel">Hotel</Link>
+                <Link to="/api/preference/{this.state.user_id}/airline">Airline</Link>
                 <br/>
-                <Link to="/airline">Airline</Link>
-                <br/>
-                <Link to="/ground">Ground</Link>
+                <Link to="/api/preference/{this.state.user_id}/ground">Ground</Link>
                 </div>
               </div>
             </div>

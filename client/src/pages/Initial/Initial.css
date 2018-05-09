@@ -15,7 +15,7 @@ body {
   /* height: 450px; */
   /* border: 2px solid black; */
   text-align: center;
-  background: transparent;
+  /* background: transparent; */
 }
 
 h6 {
@@ -23,7 +23,15 @@ h6 {
   font-size: 2rem;
 }
 
-.btn-initial {
+.btn {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  margin: 10px 10px 10px 10px;
+  border: 2px solid black;
+}
+
+/* .btn-initial {
   display: block;
   align-items: center;
   border-radius: 2px;
@@ -31,10 +39,10 @@ h6 {
   margin: 10px auto;
   width: 200px;
   padding: 10px;
-  border: 2px solid black;
+  
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background: white;
   color: black;
   font-size: 2rem;
-}
+} */
 
