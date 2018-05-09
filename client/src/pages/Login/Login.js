@@ -63,21 +63,26 @@ class Login extends Component {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-sm-12 col-lg-6">
-        <h5>Please Login</h5>
-          <form>
-            <input
-              type="text"
-              name="email_primary"
-              value={this.state.email_primary}
-              placeholder="example@gmail.com"
-              onChange={this.handleInputChange} />
-            <h5>email:{this.state.email_primary}</h5>
-            <button onClick={this.verifyUser}>Login</button>
-          </form>
+      <div className="col-sm-0 col-md-3" />
+          <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
+            <img src="/images/logo.png" className="img-fluid mb-3" alt="Responsive image" />
+            <br />
+            <h5>Please Login</h5>
+            <br />
+              <form>
+                <input
+                  type="text"
+                  name="email_primary"
+                  value={this.state.email_primary}
+                  placeholder="example@gmail.com"
+                  onChange={this.handleInputChange} />
+                {/* <h5>email:{this.state.email_primary}</h5> */}
+                <button type="button" class="btn btn-outline-secondary align-content-center mx-auto text-center d-block" onClick={this.verifyUser}>Next</button>
+              </form>
+            </div>
+          <div className="col-sm-0 col-md-3" />
         </div>
       </div>
-    </div>
   )
 }
 }

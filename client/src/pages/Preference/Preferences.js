@@ -80,36 +80,38 @@ class Preferences extends Component {
       // <Navbar />
       <div className="container-fluid">
         <div className="row">
-        <p>Hello {this.props.first_name}</p>
-          <div className="col-sm-12">
-            {this.state.preferences.length ? (
-              <List>
-                {this.state.preferences.map(item => (
-                  <ListItem key={item.product_id}>
-                    <p>
-                      {item.item_name} {'  '}
-                      <input
-                       name={item.product_id}
-                       type='checkbox'
-                       value='false'
-                       checked={item.value===false}
-                       onChange={this.handleInputChange} />
-                       {'  '}
-                       <input
-                       name={item.product_id}
-                       type='checkbox'
-                       value='true'
-                       checked={item.value===true}
-                       onChange={this.handleInputChange} />
-                    </p>
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Preferences to Display</h3>
-            )}
-          </div>
-        {/* <div className="col-md-0 col-lg-3"></div> */}
+          <div className="col-sm-0 col-md-3" />
+            <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
+              <img src="/images/logo.png" className="img-fluid mb-3" alt="Responsive image" />
+              <p>Hello {this.props.first_name}</p>
+                  {this.state.preferences.length ? (
+                    <List>
+                      {this.state.preferences.map(item => (
+                        <ListItem key={item.product_id}>
+                          <p>
+                            {item.item_name} {'  '}
+                            <input
+                            name={item.product_id}
+                            type='checkbox'
+                            value='false'
+                            checked={item.value===false}
+                            onChange={this.handleInputChange} />
+                            {'  '}
+                            <input
+                            name={item.product_id}
+                            type='checkbox'
+                            value='true'
+                            checked={item.value===true}
+                            onChange={this.handleInputChange} />
+                          </p>
+                        </ListItem>
+                      ))}
+                    </List>
+                  ) : (
+                    <h3>No Preferences to Display</h3>
+                  )}
+            </div>
+          <div className="col-sm-0 col-md-3" />
       </div>
     </div>
     );
