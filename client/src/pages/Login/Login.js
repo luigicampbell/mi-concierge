@@ -12,42 +12,38 @@ class Login extends Component {
 
   handleInputChange = (event) => {
     let { value, name } = event.target;
-
     this.setState({
       [name]: value
     });
   }
 
   verifyUser = (event) => {
+    let { value, name } = event.target;
     event.preventDefault();
     console.log("event",event)
     console.log("state", this.state.email_primary)
     API.findUserByEmail(this.state.email_primary)
       .then(res => {
         console.log("api call made", res)
-        if (!res.data[0]) {
-          console.log('handle this case');
-          // return;
-        }
-
-        const {email_primary, user_id, first_name} = res.data[0];
-          this.setState({
-            email_primary: email_primary,
-            user_id: user_id,
-            first_name: first_name
-          });
-
-          this.props.afterLogin(user_id, first_name);
-
-          if (this.state.email_primary === email_primary) {
-            console.log(`it match....`);
-            // window.location = "/preference";
-            // console.log(this.props);
-            // debugger;
+        if (res.data[0]) {
+          console.log(`email address found`);
+          const {email_primary, user_id, first_name} = res.data[0];
+          localStorage.setItem('user_id', user_id)
+          localStorage.setItem('first_name', first_name);
+          // this.setState({
+          //   email_primary: email_primary,
+          //   user_id: user_id,
+          //   first_name: first_name
+          // });
+          // this.props.afterLogin(user_id, first_name);
+          // if (this.state.email_primary === email_primary) {
             this.props.history.push('/homepage');
-          } else {
-            console.log(` it is invalid .....`);
-          }
+        } else {
+          console.log(` it is invalid .....`);
+          alert("User not found");
+          this.props.history.push('/profile')
+          
+        }
       }
     )
     .catch(err => console.log(`error, ${err}`));

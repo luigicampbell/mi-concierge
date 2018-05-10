@@ -2,7 +2,30 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.css";
 
-const Homepage = () =>
+class Homepage extends Component {
+
+  state = {
+    user_id: "",
+    first_name: ""
+  }
+
+  componentDidMount() {
+    let first_name = localStorage.getItem('first_name');
+    let user_id = localStorage.getItem('user_id');
+    this.setState({
+      user_id: user_id,
+      first_name: first_name
+    })
+    console.log("xxx",first_name,this.state.user_id,this.state.first_name)
+  }
+
+  // populateState = () => {
+  //   // localStorage.getItem('user_id', user_id)
+  //   // localStorage.getItem('first_name', first_name);
+  // }
+
+  render() {
+    return (
     <div className="container-fluid">
       <div className="row">
          <div className="col-sm-0 col-md-3" />
@@ -10,7 +33,7 @@ const Homepage = () =>
             <img src="/images/logo.png" className="img img-fluid" alt="Responsive image" mb-3 ></img>
             {/* <div className="panel"> */}
               {/* <p>Hello {this.state.first_name}</p> */}
-              <p>Hello </p>
+              <p>Hello {this.state.first_name}</p>
               <div className="link-box">
                 {/* <Link to="/sharesettings">Share Settings</Link> */}
                 {/* <Link >Share Settings</Link> */}
@@ -31,6 +54,9 @@ const Homepage = () =>
          </div>
        {/* </div> */}
     </div>
+    )
+  }
+}
 
 export default Homepage;
 
