@@ -68,10 +68,10 @@ class Preferences extends Component {
 
 
   render() {
-    return ([
-      <Navbar key='Navbar'/>,
+    return (
       
       <div className="container-fluid" key='Content'>
+      <Navbar key='Navbar'/>
         <div className="row">
           <div className="col-sm-0 col-md-3" />
             <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
@@ -107,7 +107,7 @@ class Preferences extends Component {
           <div className="col-sm-0 col-md-3" />
       </div>
     </div>
-    ]
+    
     );
   }
 }
