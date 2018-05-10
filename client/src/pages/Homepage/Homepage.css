@@ -1,32 +1,21 @@
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  float: clear;
-} */
-
 body {
-  /* margin: 5% 25%;
-  text-align: center;
-  background: transparent; */
-  background: url(../../components/Img/ocean.png);
-
+  color: white;
 }
 
-img {
-  height: 50px;
+.img {
+  max-width: 300px;
   margin-bottom: 0px;
 }
 
 .btn {
   display: block;
-  margin: 5px 5px 5px 5px;
+  margin: 0px;
 }
 
 .link-box {
-  /* background: lightblue; */
-  color: black;
+  /* color: black; */
   font-size: 14px;
-  text-decoration: none;
-  margin: 5px 5px 5px 5px;
+  /* text-decoration: none; */
+  margin: 1px 5px 1px 5px;
 }
 

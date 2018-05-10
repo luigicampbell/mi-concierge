@@ -1,3 +1,5 @@
+
+
 input[type=checkbox]{
   float: right;
   margin: 5px;
@@ -7,9 +9,33 @@ input[type=checkbox]{
   -o-transform: scale(1.5); /* Opera */
   padding: 10px;
 }
-.item_name{
+
+.img {
+  max-width: 300px;
+  margin-bottom: 0px;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.0rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin: auto;
+  display: inline-block;
+  color: black;
   float: left;
 }
+
+.item_name{
+  color: black;
+  float: left;
+}
+
 ul {
   list-style-type: none;
 }

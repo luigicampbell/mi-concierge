@@ -12,31 +12,38 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    let first_name = localStorage.getItem('first_name');
     let user_id = localStorage.getItem('user_id');
     if (user_id) {
       this.setState({
         user_id: user_id,
-        first_name: first_name
+        first_name: localStorage.getItem('first_name'),
+        last_name: localStorage.getItem('last_name'),
+        email_primary: localStorage.getItem('email_primary'),
+        phone_mobile: localStorage.getItem('phone_mobile'),
       })
 
     }
   }
-    
-    handleSubmit = (event) => {
-      event.preventDefault();
-    }
 
-    handleInputChange = (event) => {
-      let { value, name } = event.target;
-      this.setState({
-        [name]: value,
-        isLoggedIn: false
-      });
-    }
-createNewUser = (event) => {
-    API.createUser('newUserData')
-    .then(req => {
+  componentDidUpdate() {
+   
+  }
+    
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
+  handleInputChange = (event) => {
+    let { value, name } = event.target;
+    this.setState({
+      [name]: value,
+      isLoggedIn: false
+    });
+  }
+  
+  createNewUser = (event) => {
+      API.createUser('newUserData')
+      .then(req => {
 
 ///post to the backend
 
@@ -47,11 +54,11 @@ createNewUser = (event) => {
       return (
         <div className="container-fluid">
           <div className="row">
-            <div className="col-sm-0 col-md-3"></div>
-              <div className="col-sm-12 col-md-6">
+            <div className="col-sm-0 col-md-3" />
+            <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
               <Navbar key='Navbar'/>
-              <img src="/images/logo.png" className="img-fluid mb-3" alt="Responsive image" />
-                <h6>New Client Information</h6>
+              <img src="/images/logo.png" className="img img-fluid mb-3" />
+                <h5>New Client Information</h5>
                 <form>
                   <div className="form-group">
                     <label>First Name</label>
@@ -99,7 +106,7 @@ createNewUser = (event) => {
                        onChange={this.handleInputChange}
                        placeholder="password" />
                   </div>
-                  <button type="submit" className="btn btn-outline-light" onClick={this.handleSubmit}>Submit</button>
+                  <button type="submit" className="btn btn-secondary" onClick={this.handleSubmit}>Submit</button>
                 </form>
                 </div>
               <div className="col-sm-0 col-md-3"></div>

@@ -1,4 +1,18 @@
-.navbar
-{
-    background-color: transparent;
+
+.navbar {
+	background-color:transparent !important;
+	border-color:transparent;
+	background-image:none;
+    box-shadow:none;	
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+   
+}
+
+.nav-item {
+    color: lightgray;
+    /* display: inline-flex;
+    align-items: flex-end;
+    justify-content: flex-end; */
 }
