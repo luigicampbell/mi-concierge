@@ -33,14 +33,6 @@ class Preferences extends Component {
       .catch(err => console.log(err));
     }
 
-
-    // handleInputChange = event => {
-    //   const { name, value } = event.target;
-    //   this.setState({
-    //     [name]: value
-    //   });
-    // };
-
     handleInputChange = event => {
     let target = event.target;
     // let value = target.type === 'checkbox' ? target.checked : target.value;
@@ -76,9 +68,10 @@ class Preferences extends Component {
 
 
   render() {
-    return (
-      // <Navbar />
-      <div className="container-fluid">
+    return ([
+      <Navbar key='Navbar'/>,
+      
+      <div className="container-fluid" key='Content'>
         <div className="row">
           <div className="col-sm-0 col-md-3" />
             <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
@@ -114,6 +107,7 @@ class Preferences extends Component {
           <div className="col-sm-0 col-md-3" />
       </div>
     </div>
+    ]
     );
   }
 }
