@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Navbar } from "../../components/List";
 import "./Homepage.css";
 
 class Homepage extends Component {
@@ -27,6 +28,7 @@ class Homepage extends Component {
   render() {
     return (
     <div className="container-fluid">
+    <Navbar key='Navbar'/>
       <div className="row">
          <div className="col-sm-0 col-md-3" />
            <div className="col-sm-12 col-md-6">

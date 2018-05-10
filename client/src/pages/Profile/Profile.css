@@ -1,23 +1,11 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  float: clear;
+
+
+h5 {
+  font-size: 1rem;
 }
 
-body {
-  background: url();
-}
-
-.panel {
-  align-items: center;
-  width: 100%;
-  height: 450px;
-  border: 2px solid black;
-  text-align: center;
-  background: transparent;
-}
-
-.submit {
-  margin-top: 14px;
-  padding: 10px;
+.form-group {
+  color: white;
+  font-size: 1rem;
+  text-align: left;
 }

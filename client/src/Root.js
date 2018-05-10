@@ -36,14 +36,11 @@ class Root extends Component {
       <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Initial} />
-
-          <Route exact path="/login" component={(props) => (<Login afterLogin={this.afterLogin} {...props} />) } />
-          <Route exact path="/preference" component={(props) => (<Preference user_id={this.state.user_id} first_name={this.state.first_name} {...props} />)} />
-          {/* <Route exact path="/preference" component={Preference} user_id={this.state.user_id} /> */}
-
-          <Route exact path="/profile" component={(props) => (<Profile user_id={this.state.user_id} first_name={this.state.first_name} {...props} />)} />
-          <Route exact path="/homepage" component={(props) => (<Homepage user_id={this.state.user_id} first_name={this.state.first_name} {...props} />)} />
+          <Route exact path ="/" component={Initial} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/preference" component={Preference} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/homepage" component={Homepage} />
         </Switch>
       </div>
     </Router>
