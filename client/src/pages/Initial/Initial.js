@@ -32,13 +32,8 @@ class Initial extends Component {
             <img src="/images/logo.png" className="img img-fluid" alt="Responsive image" ></img>
             <h5>Welcome to you personal virtual travel concierge</h5>
             <h6>Where ever you eat, fly, stay, or drive your personal tastes and preferences will be known ahead of time, improving your travel experience.</h6>
-            <button type="button" class="btn btn-secondary d-flex text-center" onClick={this.handleCustomer}>I am a Customer</button>
-            <button type="button" class="btn btn-secondary d-flex text-center">I am a Business</button>
-
-            {/* <button className="btn-initial" onClick={this.handleCustomer}>I am a Customer</button> */}
-            {/* <button className="btn-initial" onClick={this.handleNewClient}>I am a Business</button> */}
-            {/* <button className="btn-initial">I am a Business</button> */}
-        
+            <button type="button" className="btn btn-secondary d-flex text-center" onClick={this.handleCustomer}>I am a Customer</button>
+            <button type="button" className="btn btn-secondary d-flex text-center">I am a Business</button>
           </div>
         <div className="col-sm-0 col-md-3" />
       </div>

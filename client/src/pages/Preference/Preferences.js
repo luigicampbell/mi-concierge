@@ -67,37 +67,25 @@ class Preferences extends Component {
     API.updatePrefByUserIdProdId(this.state.user_id, name, value)
     this.setState({preferences: preferences});
     console.log(this.state);
-
-
-    // function isProduct(item){
-    //   return item.product_id == name;
-    // }
-
-    // console.log(this.state.preferences.find(isProduct));
-    // this.setState({
-    //   [name]: value
-    // });
-    // this.handleInputChange = this.handleInputChange.bind(this);
   }
-
-
 
   render() {
     return (
-      
       <div className="container-fluid">
-      <Navbar key='Navbar'/>
         <div className="row">
           <div className="col-sm-0 col-md-3" />
             <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
-              <img src="/images/logo.png" className="img-fluid mb-3" alt="Responsive image" />
-              <p>Hello {this.state.first_name}</p>
+              <Navbar key='Navbar'/>
+              <img src="/images/logo.png" className="img img-fluid mb-0" />
+              <h6>Hello {this.state.first_name}</h6>
+              <h5>Your Dining Preferences</h5>
                   {this.state.preferences.length ? (
                     <List>
                       {this.state.preferences.map(item => (
                         <ListItem key={item.product_id}>
                           <p>
                             {item.item_name} {'  '}
+                          </p>  
                             <input
                             name={item.product_id}
                             type='checkbox'
@@ -111,7 +99,7 @@ class Preferences extends Component {
                             value='true'
                             checked={item.value===true}
                             onChange={this.handleInputChange} />
-                          </p>
+                          
                         </ListItem>
                       ))}
                     </List>

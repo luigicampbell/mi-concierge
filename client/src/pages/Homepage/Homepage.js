@@ -28,27 +28,23 @@ class Homepage extends Component {
   render() {
     return (
     <div className="container-fluid">
-    <Navbar key='Navbar'/>
       <div className="row">
          <div className="col-sm-0 col-md-3" />
-           <div className="col-sm-12 col-md-6">
-            <img src="/images/logo.png" className="img img-fluid" alt="Responsive image" mb-3 ></img>
-            {/* <div className="panel"> */}
-              {/* <p>Hello {this.state.first_name}</p> */}
-              <p>Hello {this.state.first_name}</p>
-              <div className="link-box">
+         <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
+            <Navbar key='Navbar'/>
+            <img src="/images/logo.png" className="img img-fluid mb-0"></img>
+              <h6>Hello {this.state.first_name}</h6>
+              <div className="link-box mt-0">
                 {/* <Link to="/sharesettings">Share Settings</Link> */}
                 {/* <Link >Share Settings</Link> */}
-                <br/><br/>
-                <p className="text-center">Your Preferences</p>
+                <h5 className="text-center">Your Preferences</h5>
+                <Link to="/preference" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block m-0" >Dinning</Link>
                 <br/>
-                <Link to="/preference" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block" >Dinning</Link>
+                <Link to="#" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block m-0">Hotel</Link>
                 <br/>
-                <Link to="/api/preference/{this.state.user_id}/hotel" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block">Hotel</Link>
+                <Link to="#" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block m-0">Airline</Link>
                 <br/>
-                <Link to="/api/preference/{this.state.user_id}/airline" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block">Airline</Link>
-                <br/>
-                <Link to="/api/preference/{this.state.user_id}/ground" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block">Ground</Link>
+                <Link to="#" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block m-0">Ground</Link>
                 </div>
               {/* </div> */}
             </div>
