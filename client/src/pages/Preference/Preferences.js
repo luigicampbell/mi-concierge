@@ -9,23 +9,38 @@ class Preferences extends Component {
   state = {
     preferences: [],
     email_primary: "",
-    category: ""
+    category: "",
+    user_id: "",
+    first_name: ""
   };
 
   componentDidMount() {
-    console.log('didMount', this.props.user_id);
-    this.showPreferences('dining')
-    // this.showPreferences(this.props.category)
+    let first_name = localStorage.getItem('first_name');
+    let user_id = localStorage.getItem('user_id');
+    console.log("component mounted")
+    console.log("12345",first_name,user_id)
+    this.setState({
+      user_id: user_id,
+      first_name: first_name
+    })
+   
   }
 
-  componentDidUpdate(prevProps) {
-    console.log("preference page",this.props)
-    if (prevProps.user_id !== this.props.user_id) this.showPreferences(this.props.category);
+  componentDidUpdate(prevProps, prevState) {
+    // if (prevProps.user_id !== this.state.user_id) { 
+    //   this.showPreferences(this.props.category);
+    // }
+
+    if (prevState.user_id != this.state.user_id) {
+      this.showPreferences('dining')
+    }
+    
+
   }
 
   showPreferences = (category) => {
-    console.log("showPreferences",this.props.user_id);
-    API.findPrefByUserIdCategory(this.props.user_id, category)
+    console.log("showPreferences",this.state.user_id);
+    API.findPrefByUserIdCategory(this.state.user_id, category)
       .then(res => {
         console.log("res.data",res.data)
         this.setState({ preferences: res.data })
@@ -49,7 +64,7 @@ class Preferences extends Component {
       }
     }
     console.log(this.props.user_id,name,value)
-    API.updatePrefByUserIdProdId(this.props.user_id, name, value)
+    API.updatePrefByUserIdProdId(this.state.user_id, name, value)
     this.setState({preferences: preferences});
     console.log(this.state);
 
@@ -70,13 +85,13 @@ class Preferences extends Component {
   render() {
     return (
       
-      <div className="container-fluid" key='Content'>
+      <div className="container-fluid">
       <Navbar key='Navbar'/>
         <div className="row">
           <div className="col-sm-0 col-md-3" />
             <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
               <img src="/images/logo.png" className="img-fluid mb-3" alt="Responsive image" />
-              <p>Hello {this.props.first_name}</p>
+              <p>Hello {this.state.first_name}</p>
                   {this.state.preferences.length ? (
                     <List>
                       {this.state.preferences.map(item => (
