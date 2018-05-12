@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Initial.css";
-import Navbar from "../../components/List/Navbar.js"
 
 class Initial extends Component {
     constructor(props) {
@@ -29,7 +28,7 @@ class Initial extends Component {
         <div className="row">
         <div className="col-sm-0 col-md-3" />
           <div className="col-sm-12 col-md-6">
-            <img src="/images/logo.png" className="img img-fluid" alt="Responsive image" ></img>
+            <img src="/images/logo.png" alt="logo" className="img img-fluid" ></img>
             <h5>Welcome to you personal virtual travel concierge</h5>
             <h6>Where ever you eat, fly, stay, or drive your personal tastes and preferences will be known ahead of time, improving your travel experience.</h6>
             <button type="button" className="btn btn-secondary d-flex text-center" onClick={this.handleCustomer}>I am a Customer</button>

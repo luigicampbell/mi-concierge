@@ -32,7 +32,7 @@ class Homepage extends Component {
          <div className="col-sm-0 col-md-3" />
          <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
             <Navbar key='Navbar'/>
-            <img src="/images/logo.png" className="img img-fluid mb-0"></img>
+            <img src="/images/logo.png" alt="logo" className="img img-fluid mb-0"></img>
               <h6>Hello {this.state.first_name}</h6>
               <div className="link-box mt-0">
                 {/* <Link to="/sharesettings">Share Settings</Link> */}
