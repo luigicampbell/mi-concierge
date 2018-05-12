@@ -78,11 +78,9 @@ module.exports = {
   // 3)  if value = 0 then delete - return
   // 4)   else update preference
   // 5) else create preference
+
   updatePrefByUserIdProdID: function (req, res) {
     let {user_id, product_id, value} = req.params;
-    // let user_id = req.params.user_id;
-    // let product_id = req.params.product_id;
-    // let value = req.params.value;
     Preference.findOneAndUpdate(
       // query
       { user_id: user_id,
@@ -134,7 +132,6 @@ module.exports = {
         }
       )
   },
-// Model.findOneAndUpdate({ name: 'borne' }, { name: 'jason bourne' }, options, callback)
 
   // Find preferences by user_id and category [Dining, Airline, Hotel, Auto]
   // called from /api/preference/:user_id/:category
@@ -169,8 +166,6 @@ module.exports = {
           preferences = prefResults.map(function(pref){
             return pref.toObject();
           })
-          // console.log("preferences.length - preferences[0].product_id - value",preferences.length, preferences[0].product_id,preferences[0].value);
-          // match and move productId[] and preferences[] to productsPrefs[] and return JSON
           for (let i=0; i < newProducts.length; i++) {
             if (preferences) {
               for (let j=0; j < preferences.length; j++) {

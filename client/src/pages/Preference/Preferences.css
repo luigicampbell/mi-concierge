@@ -3,17 +3,11 @@
 input[type=checkbox]{
   float: right;
   margin: 5px;
-  -ms-transform: scale(1.5); /* IE */
-  -moz-transform: scale(1.5); /* FF */
-  -webkit-transform: scale(1.5); /* Safari and Chrome */
-  -o-transform: scale(1.5); /* Opera */
+
   padding: 10px;
 }
 
-.img {
-  max-width: 300px;
-  margin-bottom: 0px;
-}
+
 
 h5 {
   font-size: 1.5rem;
@@ -24,18 +18,22 @@ h6 {
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: auto;
   display: inline-block;
-  color: black;
+  color: #557788;
   float: left;
 }
 
 .item_name{
-  color: black;
+  color: lightgray;
   float: left;
 }
 
 ul {
   list-style-type: none;
+}
+
+.list-group-item {
+  background-color: rgba(255,255,255,.5)
 }

@@ -4,19 +4,12 @@
 }
 
 .img {
+  display: block;
+  margin: auto;
   max-width: 300px;
   margin-bottom: 0px;
 }
 
-
-body {
-  /* margin: 5% 25%; */
-  text-align: center;
-  background: url(../../components/Img/pool.png);
-  background-position: center;
-  background-size: 200%;
-  background-repeat: no-repeat;
-}
 
 h5 {
   color: white;
@@ -43,3 +36,4 @@ h6 {
   border: 2px solid #ffffff;
   width: 150px;
 }
+
