@@ -29,14 +29,7 @@ class Profile extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // if (prevState.user_id != this.state.user_id) {
-    //   this.setState({
-    //     first_name: 'hello'
-    //   })
-    // }
-    // console.log("found user")
-    // console.log(this.state.first_name)
-      
+  
   }
     
   handleSubmit = (event) => {
