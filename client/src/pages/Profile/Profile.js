@@ -66,7 +66,12 @@ class Profile extends Component {
           <div className="row">
             <div className="col-sm-0 col-md-3" />
             <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
-              <Navbar key='Navbar'/>
+            {
+                  this.state.user_id ? 
+                  <Navbar key='Navbar'/>
+                   : 
+                  ''
+                }
               <img src="/images/logo.png" alt="logo" className="img img-fluid mb-3" />
                 {
                   this.state.user_id ? 
