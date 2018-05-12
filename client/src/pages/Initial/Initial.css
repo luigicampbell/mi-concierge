@@ -12,7 +12,9 @@
 body {
   /* margin: 5% 25%; */
   text-align: center;
-  background: url(../../components/Img/ocean.png);
+  background: url(../../components/Img/scene.png);
+  background-size: 200%;
+  background-repeat: no-repeat;
 }
 
 h5 {
