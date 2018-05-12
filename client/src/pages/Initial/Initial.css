@@ -12,7 +12,7 @@
 body {
   /* margin: 5% 25%; */
   text-align: center;
-  background: url(../../components/Img/scene.png);
+  background: url(../../components/Img/pool.png);
   background-position: center;
   background-size: 200%;
   background-repeat: no-repeat;
@@ -20,15 +20,15 @@ body {
 
 h5 {
   color: white;
-  font-size: 1.5rem;
+  font-size: 2.0rem;
   font-weight: 400;
  margin: 5px 10% 25px 10%;
 }
 
 h6 {
   color: white;
-  font-size: 1.0rem;
-  font-weight: 100;
+  font-size: 1.5rem;
+  font-weight: 200;
  margin: 5px 10% 25px 10%;
 }
 
