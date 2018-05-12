@@ -38,7 +38,7 @@ class Homepage extends Component {
                 {/* <Link to="/sharesettings">Share Settings</Link> */}
                 {/* <Link >Share Settings</Link> */}
                 <h5 className="text-center">Your Preferences</h5>
-                <Link to="/preference" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block m-0" >Dinning</Link>
+                <Link to="/preference" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block m-0" >Dining</Link>
                 <br/>
                 <Link to="#" className="btn btn-outline-secondary align-content-center mx-auto text-center d-block m-0">Hotel</Link>
                 <br/>
