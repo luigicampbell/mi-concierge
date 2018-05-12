@@ -17,6 +17,7 @@
     "react-scripts": "^1.0.14",
     "redux-form": "^7.3.0"
   },
+  "homepage": "https://mi-concierge.herokuapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
