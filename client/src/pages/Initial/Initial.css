@@ -34,11 +34,12 @@ h6 {
 
 .btn {
   display: block;
+  background-color: #eeeeee;
   align-content: center;
-  color: white;
+  color: #555555;
   align-content: center;
   align-items: center;
   margin: 10px auto;
-  border: 2px solid white;
+  border: 2px solid #ffffff;
   width: 150px;
 }
