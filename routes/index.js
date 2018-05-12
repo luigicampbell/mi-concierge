@@ -11,7 +11,7 @@ router.use("/api", apiRoutes);
 // });
 
 router.get('*', function(request, response) {
-  response.sendFile(path.sendFile(__dirname, './client/build', 'index.html'));
+  response.sendFile(path.join(__dirname, './client/build', 'index.html'));
 });
 
 module.exports = router;
