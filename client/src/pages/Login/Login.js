@@ -52,7 +52,7 @@ class Login extends Component {
       <div className="row">
       <div className="col-sm-0 col-md-3" />
           <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
-            <img src="/images/logo.png" className="img img-fluid mb-3" alt="Responsive image" />
+            <img src="/images/logo.png" alt="logo"  className="img img-fluid mb-3" />
             <br />
             <h5>Please Login</h5>
             <br />

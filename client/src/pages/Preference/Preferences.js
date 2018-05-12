@@ -31,7 +31,7 @@ class Preferences extends Component {
     //   this.showPreferences(this.props.category);
     // }
 
-    if (prevState.user_id != this.state.user_id) {
+    if (prevState.user_id !== this.state.user_id) {
       this.showPreferences('dining')
     }
     
@@ -76,7 +76,7 @@ class Preferences extends Component {
           <div className="col-sm-0 col-md-3" />
             <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
               <Navbar key='Navbar'/>
-              <img src="/images/logo.png" className="img img-fluid mb-0" />
+              <img src="/images/logo.png" alt="logo" className="img img-fluid mb-0" />
               <h6>Hello {this.state.first_name}</h6>
               <h5>Your Dining Preferences</h5>
                   {this.state.preferences.length ? (

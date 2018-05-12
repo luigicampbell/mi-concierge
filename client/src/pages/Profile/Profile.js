@@ -8,7 +8,10 @@ class Profile extends Component {
 
   state = {
     user_id: '',
-    first_name: ''
+    first_name: '',
+    last_name: '',
+    email_primary: '',
+    phone_mobile: ''
   }
 
   componentDidMount() {
@@ -21,12 +24,19 @@ class Profile extends Component {
         email_primary: localStorage.getItem('email_primary'),
         phone_mobile: localStorage.getItem('phone_mobile'),
       })
-
+      
     }
   }
 
-  componentDidUpdate() {
-   
+  componentDidUpdate(prevProps, prevState) {
+    // if (prevState.user_id != this.state.user_id) {
+    //   this.setState({
+    //     first_name: 'hello'
+    //   })
+    // }
+    // console.log("found user")
+    // console.log(this.state.first_name)
+      
   }
     
   handleSubmit = (event) => {
@@ -56,32 +66,45 @@ class Profile extends Component {
           <div className="row">
             <div className="col-sm-0 col-md-3" />
             <div className="col-sm-12 col-md-6 mx-auto text-center align-content-center mb-3">
-              <Navbar key='Navbar'/>
-              <img src="/images/logo.png" className="img img-fluid mb-3" />
-                <h5>New Client Information</h5>
+            {
+                  this.state.user_id ? 
+                  <Navbar key='Navbar'/>
+                   : 
+                  ''
+                }
+              <img src="/images/logo.png" alt="logo" className="img img-fluid mb-3" />
+                {
+                  this.state.user_id ? 
+                  <h6>Update Your Profile</h6> : 
+                  <h6>Welcome - Please Register</h6>
+                }
+                
                 <form>
                   <div className="form-group">
                     <label>First Name</label>
                     <input className="form-control"
                       type="text"
-                      name="first name"
+                      value={this.state.first_name}
+                      name={this.state.first_name}
                       required="required" 
                       onChange={this.handleInputChange}
-                      placeholder="firstname"/>
+                      placeholder="first name"/>
                   </div>
                   <div className="form-group">
                     <label>Last Name</label>
                     <input className="form-control"
                        type="text"
-                       name="last name"
+                       value={this.state.last_name}
+                       name="last_name"
                        required="required"
                        onChange={this.handleInputChange}
-                       placeholder="lastname" />
+                       placeholder="last name" />
                   </div>
                   <div className="form-group">
                     <label>Primary Email Address</label>
                     <input className="form-control"
                        type="text"
+                       value={this.state.email_primary}
                        name="email primary"
                        required="required"
                        pattern="/^.+@{1}.+\.[a-zA-Z]{2,4}$/"
@@ -92,6 +115,7 @@ class Profile extends Component {
                     <label>Primary Phone Number</label>
                     <input className="form-control"
                        type="text"
+                       value={this.state.phone_mobile}
                        name="phone_mobile"
                        required="required"
                        onChange={this.handleInputChange}
