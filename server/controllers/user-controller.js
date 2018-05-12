@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../models/User");
 const uuidv1 = require("uuid/v1");
 
 module.exports = {
