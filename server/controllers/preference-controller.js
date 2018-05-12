@@ -1,5 +1,5 @@
-const Preference = require("../models/preference");
-const Product = require("../models/product");
+const Preference = require("../models/Preference");
+const Product = require("../models/Product");
 const uuidv1 = require("uuid/v1");
 const testArray = [
   {

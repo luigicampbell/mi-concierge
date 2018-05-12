@@ -1,15 +1,10 @@
 require('dotenv').config();
-// var keys = require('./keys.js');
 var express = require('express');
 var path = require('path');
-// var favicon = require('serve-favicon');
-// var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 const routes = require('./routes')
-// var index = require('./routes/index');
-// var users = require('./routes/api/user');
 
 const PORT = process.env.PORT || 3001;
 var app = express();
@@ -20,8 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-// app.use('/', index);
-// app.use('/users', users);
 app.use(routes);
 
 // catch 404 and forward to error handler
@@ -52,14 +45,6 @@ mongoose.connect(db, function(error) {
     console.log("Successfull connection to MongoDB");
   }
 });
-// mongoose.connect("mongodb://localhost/mi-concierge", function(error) {
-//   if (error) {
-//     console.error(`Error Connecting to MongoDB: ${error}`);
-//   }
-//   else {
-//     console.log("Successfull connection to MongoDB");
-//   }
-// });
 
 app.listen(PORT, function() {
   console.log(`Express Server Listening on PORT: ${PORT}!`);
